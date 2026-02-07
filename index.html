@@ -74,7 +74,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#departments">Departments</a></li>
-            <li><a href="#doctors">Doctors</a></li>
+            <li><a href="#doctors">Team</a></li>
             <!-- <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>
                 <li><a href="#">Dropdown 1</a></li>
@@ -111,12 +111,13 @@
     <section id="hero" class="hero section light-background">
 
       <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
+      <img src="assets/img/mindMateDashboardBG.webp" alt="" data-aos="fade-in">
 
       <div class="container position-relative">
 
-        <div class="welcome position-relative" data-aos="fade-down" data-aos-delay="100">
-          <h2>WELCOME TO MINDMATE</h2>
-          <p>We are a professional counseling and mental wellness institute <br> dedicated to supporting emotional health and personal growth.</p>
+        <div class="welcome position-relative" data-aos="fade-down" data-aos-delay="100" style="color: white;">
+          <h2 style="color: white;">WELCOME TO MINDMATE</h2>
+          <p>We are a professional counseling, mental wellness and training institute <br> dedicated to supporting emotional health and personal growth.</p>
         </div><!-- End Welcome -->
 
         <div class="content row gy-4">
@@ -124,7 +125,7 @@
             <div class="why-box" data-aos="zoom-out" data-aos-delay="200">
               <h3>Why Choose MindMate?</h3>
               <p>
-                MindMate provides a safe, confidential, and supportive environment for individuals seeking emotional well-being. Our experienced counselors follow ethical, evidence-based practices to help clients navigate life challenges with clarity and confidence. We offer both online and in-person counseling tailored to individual needs.
+                MindMate provides a safe, confidential, and supportive environment for individuals seeking emotional well-being. Our experienced counselors follow ethical, evidence-based practices to help clients navigate life challenges with clarity and confidence. We offer both online and in-person counseling tailored to individual needs. We Provide Training for students, teachers, parents, employee/work place, etc.
               </p>
               <div class="text-center">
                 <a href="#about" class="more-btn"><span>Learn More</span> <i class="bi bi-chevron-right"></i></a>
@@ -156,7 +157,7 @@
                   <div class="icon-box" data-aos="zoom-out" data-aos-delay="500">
                     <i class="bi bi-inboxes"></i>
                     <h4>Who We Help</h4>
-                    <p>We support individuals, couples, adolescents, and families through personalized counseling designed to address emotional, behavioral, and relationship challenges.</p>
+                    <p>We support individuals, couples, adolescents, oldage and families through personalized counseling and training designed to address emotional, behavioral, relationship personal growth challenges.</p>
                   </div>
                 </div><!-- End Icon Box -->
 
@@ -170,23 +171,36 @@
     </section><!-- /Hero Section -->
 
     <!-- About Section -->
-    <section id="about" class="about section">
-
+    <section id="about" class="about section" >
       <div class="container">
 
-        <div class="row gy-4 gx-5">
+        <div class="row gy-4 gx-5 align-items-stretch">
 
-          <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="200">
-            <img src="assets/img/about.jpg" class="img-fluid" alt="">
-            <a href="https://www.youtube.com/" class="glightbox pulsating-play-btn"></a>
-            <!-- https://www.youtube.com/watch?v=Y7f98aduVJ8 -->
+          <!-- Video Column -->
+          <div class="col-lg-6 position-relative d-flex align-self-stretch"
+              data-aos="fade-up" data-aos-delay="200">
+
+            <div class="video-wrapper w-100 position-relative">
+              <img src="assets/img/posterImage.png" style="border-radius: 20px;" class="img-fluid h-100 w-100 object-fit-cover" alt="MindMate Video">
+
+              <a
+                href="assets/img/MindMateAdd.mp4"
+                class="glightbox pulsating-play-btn"
+                data-type="video"
+              ></a>
+            </div>
+
           </div>
 
-          <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
+          <!-- Content Column -->
+          <div class="col-lg-6 content d-flex flex-column justify-content-center"
+              data-aos="fade-up" data-aos-delay="100">
+
             <h3>About Us</h3>
             <p>
               MindMate is a professional counseling and mental wellness institute committed to supporting individuals through life’s emotional and psychological challenges. We focus on compassionate care, ethical practice, and evidence-based counseling to promote mental well-being, personal growth, and emotional resilience.
             </p>
+
             <ul>
               <li>
                 <i class="fa-solid fa-vial-circle-check"></i>
@@ -197,6 +211,7 @@
                   </p>
                 </div>
               </li>
+
               <li>
                 <i class="fa-solid fa-pump-medical"></i>
                 <div>
@@ -206,6 +221,7 @@
                   </p>
                 </div>
               </li>
+
               <li>
                 <i class="fa-solid fa-heart-circle-xmark"></i>
                 <div>
@@ -216,15 +232,15 @@
                 </div>
               </li>
             </ul>
+
           </div>
+
         </div>
-
       </div>
-
     </section><!-- /About Section -->
 
     <!-- Stats Section -->
-    <section id="stats" class="stats section light-background">
+    <!-- <section id="stats" class="stats section light-background">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -236,7 +252,7 @@
               <span data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="1" class="purecounter"></span>
               <p>Doctors</p>
             </div>
-          </div><!-- End Stats Item -->
+          </div>
 
           <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
             <i class="fa-regular fa-hospital"></i>
@@ -244,7 +260,7 @@
               <span data-purecounter-start="0" data-purecounter-end="18" data-purecounter-duration="1" class="purecounter"></span>
               <p>Departments</p>
             </div>
-          </div><!-- End Stats Item -->
+          </div>
 
           <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
             <i class="fas fa-flask"></i>
@@ -252,7 +268,7 @@
               <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1" class="purecounter"></span>
               <p>Research Labs</p>
             </div>
-          </div><!-- End Stats Item -->
+          </div>
 
           <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
             <i class="fas fa-award"></i>
@@ -260,124 +276,97 @@
               <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1" class="purecounter"></span>
               <p>Awards</p>
             </div>
-          </div><!-- End Stats Item -->
+          </div>
 
         </div>
 
       </div>
 
-    </section><!-- /Stats Section -->
+    </section>/Stats Section -->
 
-    <!-- Services Section -->
-    <section id="services" class="services section">
+ <!-- Services Section -->
+<section id="services" class="services section bg-light">
 
   <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Services</h2>
-    <p>
-      MindMate offers integrated mental health counseling and diagnostic laboratory services to support overall well-being and informed care.
+  <div class="container section-title text-center" data-aos="fade-up">
+    <h2>Our Services</h2>
+    <p class="mt-2">
+      Structured mental wellness solutions delivered through counseling, advanced therapeutic care,
+      and awareness & training programs.
     </p>
-  </div><!-- End Section Title -->
-
-  <div class="container">
-
-    <div class="row gy-4">
-
-      <!-- Counseling Service 1 -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="service-item position-relative" style="border-radius: 10px;">
-          <div class="icon">
-            <i class="fas fa-heartbeat"></i>
-          </div>
-          <a href="#" class="stretched-link">
-            <h3>Individual Counseling</h3>
-          </a>
-          <p>
-            One-on-one counseling sessions designed to help individuals manage stress, anxiety, emotional challenges, and personal growth.
-          </p>
-        </div>
-      </div><!-- End Service Item -->
-
-      <!-- Counseling Service 2 -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="service-item position-relative" style="border-radius: 10px;">
-          <div class="icon">
-            <i class="fas fa-hospital-user"></i>
-          </div>
-          <a href="#" class="stretched-link">
-            <h3>Couple & Family Counseling</h3>
-          </a>
-          <p>
-            Professional support for couples and families to improve communication, resolve conflicts, and strengthen relationships.
-          </p>
-        </div>
-      </div><!-- End Service Item -->
-
-      <!-- Counseling Service 3 -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-        <div class="service-item position-relative" style="border-radius: 10px;">
-          <div class="icon">
-            <i class="fas fa-brain"></i>
-          </div>
-          <a href="#" class="stretched-link">
-            <h3>Adolescent Counseling</h3>
-          </a>
-          <p>
-            Specialized counseling for adolescents addressing academic stress, behavioral concerns, emotional well-being, and self-development.
-          </p>
-        </div>
-      </div><!-- End Service Item -->
-
-      <!-- Lab Service 1 -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-        <div class="service-item position-relative" style="border-radius: 10px;">
-          <div class="icon">
-            <i class="fas fa-dna"></i>
-          </div>
-          <a href="#" class="stretched-link">
-            <h3>Diagnostic Laboratory Tests</h3>
-          </a>
-          <p>
-            Accurate and reliable diagnostic testing services supporting medical evaluation, treatment planning, and health monitoring.
-          </p>
-        </div>
-      </div><!-- End Service Item -->
-
-      <!-- Lab Service 2 -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-        <div class="service-item position-relative" style="border-radius: 10px;">
-          <div class="icon">
-            <i class="fas fa-notes-medical"></i>
-          </div>
-          <a href="#" class="stretched-link">
-            <h3>Routine Health Checkups</h3>
-          </a>
-          <p>
-            Comprehensive health checkup packages designed for preventive care, early detection, and ongoing health assessment.
-          </p>
-        </div>
-      </div><!-- End Service Item -->
-
-      <!-- Lab Service 3 -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-        <div class="service-item position-relative" style="border-radius: 10px;">
-          <div class="icon">
-            <i class="fas fa-vials"></i>
-          </div>
-          <a href="#" class="stretched-link">
-            <h3>Sample Collection & Reporting</h3>
-          </a>
-          <p>
-            Safe and hygienic sample collection with timely and confidential reporting to support accurate medical decisions.
-          </p>
-        </div>
-      </div><!-- End Service Item -->
-
-    </div>
-
   </div>
 
-</section><!-- /Services Section -->
+  <div class="container">
+    <div class="row gy-4 mt-4">
+
+      <!-- Counseling Services -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-card h-100">
+          <div class="service-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3>Counseling Services</h3>
+          <p class="service-desc">
+            Confidential and professional counseling support tailored for individuals, couples,
+            families, and all age groups.
+          </p>
+          <ul class="service-list">
+            <li>Individual & Family Counseling</li>
+            <li>Adolescent & Geriatric Counseling</li>
+            <li>Marital & Premarital Counseling</li>
+            <li>Career & Educational Guidance</li>
+            <li>Behavioral & Cognitive Therapy</li>
+            <li>Substance Abuse Support</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Advanced Mental Wellness -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-card h-100">
+          <div class="service-icon">
+            <i class="fas fa-heartbeat"></i>
+          </div>
+          <h3>Advanced Mental Wellness</h3>
+          <p class="service-desc">
+            Evidence-based therapeutic interventions focused on emotional balance,
+            self-development, and mental resilience.
+          </p>
+          <ul class="service-list">
+            <li>Stress, Anxiety & Grief Management</li>
+            <li>ADHD & Screen Addiction Support</li>
+            <li>Supportive Psychotherapy</li>
+            <li>Confidence & Memory Enhancement</li>
+            <li>NLP-Based Mindfulness & Healing</li>
+            <li>Life Skills & Emotional Intelligence</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Awareness & Training -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="service-card h-100">
+          <div class="service-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Awareness & Training</h3>
+          <p class="service-desc">
+            Structured programs designed to create awareness, promote mental well-being,
+            and improve productivity across communities.
+          </p>
+          <ul class="service-list">
+            <li>Teachers Awareness Programs</li>
+            <li>Students Mental Wellness Programs</li>
+            <li>Parents Awareness Sessions</li>
+            <li>Employee & Workplace Wellness</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
 
     <!-- Appointment Section -->
@@ -591,6 +580,7 @@
   </div>
 
 </section><!-- /Departments Section -->
+
 <!-- Team Section -->
 <section id="doctors" class="doctors section">
 
@@ -610,13 +600,17 @@
       <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
         <div class="team-member d-flex align-items-start">
           <div class="pic">
-            <img src="assets/img/doctors/doctors-1.jpg" class="img-fluid" alt="">
+            <img src="assets/img/doctors/Bushra.jpeg" class="img-fluid" alt="" style="object-fit: cover;height: 10rem;width: 10rem;">
           </div>
           <div class="member-info">
-            <h4>Dr. Ananya Menon</h4>
-            <span>Clinical Psychologist</span>
+            <h4>Bushra TP</h4>
+            <span>Director of Mind Mate</span>
+            <span>Senior Counselor</span>
             <p>
-              Specializes in individual counseling, stress management, anxiety, and emotional well-being using evidence-based approaches.
+              MSW, PGDCP, NLB GRAND MASTER, TRAINER 
+            </p>
+            <p>
+               A seasoned mental health professional and certified trainer with over a decade of experience. Bushra combines clinical expertise with transformative coaching techniques to foster resilience, emotional intelligence, and personal growth in individuals and organizations.
             </p>
             <div class="social">
               <a href="#"><i class="bi bi-twitter-x"></i></a>
@@ -632,13 +626,13 @@
       <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
         <div class="team-member d-flex align-items-start">
           <div class="pic">
-            <img src="assets/img/doctors/doctors-2.jpg" class="img-fluid" alt="">
+            <img src="assets/img/doctors/Neema.png" class="img-fluid" alt="">
           </div>
           <div class="member-info">
-            <h4>Ms. Riya Nair</h4>
-            <span>Counseling Psychologist</span>
+            <h4>Neema P</h4>
+            <span>Applied Psychologist Medical & Psychiatric Social Worker</span>
             <p>
-              Experienced in adolescent counseling, emotional regulation, academic stress, and personal development support.
+              I am a qualified and compassionate mental health professional with expertise in Applied Psychology and Medical & Psychiatric Social Work. I specialize in supporting children, adolescents, adults, and families, with a special focus on child development, ASD, developmental delays, and parent counseling. My approach is client-centered, empathetic, and evidence-based, promoting emotional well-being and overall growth.
             </p>
             <div class="social">
               <a href="#"><i class="bi bi-twitter-x"></i></a>
@@ -654,13 +648,14 @@
       <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
         <div class="team-member d-flex align-items-start">
           <div class="pic">
-            <img src="assets/img/doctors/doctors-3.jpg" class="img-fluid" alt="">
+            <img src="assets/img/doctors/JiluAsna.jpeg" class="img-fluid" alt="">
           </div>
           <div class="member-info">
-            <h4>Mr. Arjun Kumar</h4>
-            <span>Family & Relationship Counselor</span>
+            <h4>Jilu Asna</h4>
+            <span>Consultant Psychologist</span>
+            <span>Msc Psychology</span>
             <p>
-              Provides counseling for couples and families, focusing on communication, conflict resolution, and relationship well-being.
+              Psychologist with experience in the Child Protection Department, providing assessments and trauma-informed counselling for children, adolescents, and adults. M.Phil in Clinical Psychology, trained in evidence-based interventions, especially CBT. Experienced in multidisciplinary teamwork and committed to delivering individualized, effective mental health care.
             </p>
             <div class="social">
               <a href="#"><i class="bi bi-twitter-x"></i></a>
@@ -676,13 +671,13 @@
       <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
         <div class="team-member d-flex align-items-start">
           <div class="pic">
-            <img src="assets/img/doctors/doctors-4.jpg" class="img-fluid" alt="">
+            <img src="assets/img/doctors/Sunitha.jpeg" class="img-fluid" alt="" style="object-fit: cover;height: 10rem;width: 10rem;">
           </div>
           <div class="member-info">
-            <h4>Mr. Sanjay Rao</h4>
-            <span>Laboratory & Diagnostic Specialist</span>
+            <h4>Sunitha Nair</h4>
+            <span>Counsellor and behavioural psychology</span>
             <p>
-              Oversees diagnostic testing, quality control, and accurate reporting while maintaining strict safety and hygiene standards.
+              I am a counsellor and behavioural psychology professional with over 13 years of experience in the field of counselling and life skills training. Over the years, I have worked closely with children, adolescents, parents, educators, and adults, supporting them through emotional, behavioural, academic, and life-related challenges.
             </p>
             <div class="social">
               <a href="#"><i class="bi bi-twitter-x"></i></a>
@@ -932,15 +927,13 @@
 
     </section><!-- /Testimonials Section -->
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
+   
+      <!-- <section> 
+        <div class="container section-title" data-aos="fade-up">
         <h2>Our Space & Sessions</h2>
         <p>A glimpse into our safe, welcoming environments and moments from our therapy sessions,
             designed to support comfort, confidentiality, and healing.</p>
-      </div><!-- End Section Title -->
+      </div>
 
       <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
 
@@ -952,7 +945,7 @@
                 <img src="assets/img/gallery/gallery-1.jpg" alt="" class="img-fluid">
               </a>
             </div>
-          </div><!-- End Gallery Item -->
+          </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
@@ -960,7 +953,7 @@
                 <img src="assets/img/gallery/gallery-2.jpg" alt="" class="img-fluid">
               </a>
             </div>
-          </div><!-- End Gallery Item -->
+          </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
@@ -968,7 +961,7 @@
                 <img src="assets/img/gallery/gallery-3.jpg" alt="" class="img-fluid">
               </a>
             </div>
-          </div><!-- End Gallery Item -->
+          </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
@@ -976,7 +969,7 @@
                 <img src="assets/img/gallery/gallery-4.jpg" alt="" class="img-fluid">
               </a>
             </div>
-          </div><!-- End Gallery Item -->
+          </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
@@ -984,7 +977,7 @@
                 <img src="assets/img/gallery/gallery-5.jpg" alt="" class="img-fluid">
               </a>
             </div>
-          </div><!-- End Gallery Item -->
+          </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
@@ -992,7 +985,7 @@
                 <img src="assets/img/gallery/gallery-6.jpg" alt="" class="img-fluid">
               </a>
             </div>
-          </div><!-- End Gallery Item -->
+          </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
@@ -1000,7 +993,7 @@
                 <img src="assets/img/gallery/gallery-7.jpg" alt="" class="img-fluid">
               </a>
             </div>
-          </div><!-- End Gallery Item -->
+          </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
@@ -1008,13 +1001,13 @@
                 <img src="assets/img/gallery/gallery-8.jpg" alt="" class="img-fluid">
               </a>
             </div>
-          </div><!-- End Gallery Item -->
+          </div>
 
         </div>
 
       </div>
 
-    </section><!-- /Gallery Section -->
+    </section> -->
 
     <!-- Contact Section -->
     <section id="contact" class="contact section">
@@ -1211,5 +1204,88 @@
   <script src="assets/js/main.js"></script>
 
 </body>
+
+<style>
+  .services {
+  padding: 80px 0;
+}
+
+.section-title h2 {
+  font-weight: 700;
+}
+
+.section-title p {
+  max-width: 700px;
+  margin: auto;
+  color: #6c757d;
+}
+
+/* Service Card */
+.service-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 32px 28px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 45px rgba(0, 0, 0, 0.08);
+}
+
+/* Icon */
+.service-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(13, 110, 253, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.service-icon i {
+  font-size: 28px;
+  color: var(--accent-color);
+}
+
+/* Text */
+.service-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.service-desc {
+  font-size: 15px;
+  color: #6c757d;
+  margin-bottom: 20px;
+}
+
+/* List */
+.service-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.service-list li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 10px;
+  font-size: 14.5px;
+  color: #444;
+}
+
+.service-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+</style>
 
 </html>
