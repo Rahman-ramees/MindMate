@@ -1,5 +1,7 @@
 <?php
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 require_once __DIR__ . '/../PHPMailer-master/src/Exception.php';
 require_once __DIR__ . '/../PHPMailer-master/src/PHPMailer.php';
 require_once __DIR__ . '/../PHPMailer-master/src/SMTP.php';
@@ -126,6 +128,8 @@ function createMailer(): PHPMailer
     // $mail->Port       = 587;
 
     $mail->isHTML(true);
+
+    $mail->SMTPDebug = 2;
 
     $mail->CharSet = 'UTF-8';
 
