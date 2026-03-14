@@ -34,20 +34,28 @@ try {
 
     $mail = new PHPMailer(true);
 
+    // $mail->isSMTP();
+    // $mail->Host = 'sandbox.smtp.mailtrap.io';
+    // $mail->SMTPAuth = true;
+    // $mail->Username = '1e789f2db08f40';
+    // $mail->Password = 'd472a998b827a2';
+    // $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    // $mail->Port = 587;
+
     $mail->isSMTP();
-    $mail->Host = 'sandbox.smtp.mailtrap.io';
-    $mail->SMTPAuth = true;
-    $mail->Username = '1e789f2db08f40';
-    $mail->Password = 'd472a998b827a2';
+    $mail->Host       = 'smtp.gmail.com';
+    $mail->SMTPAuth   = true;
+    $mail->Username   = 'rhmnramees730@gmail.com';
+    $mail->Password   = 'eflfkxkpgasfgcmp'; // ⚠️ App password only
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port = 587;
+    $mail->Port       = 587;
 
     // very important for live debugging
     $mail->Timeout = 15;
     $mail->SMTPDebug = SMTP::DEBUG_OFF;
 
     $mail->setFrom('no-reply@example.com', 'ID Card Generator');
-    $mail->addAddress('makeomaaz13@gmail.com');
+    $mail->addAddress('rhmnramees730@gmail.com');
     $mail->addCC('rhmnramees730@gmail.com');
 
     $mail->isHTML(true);
