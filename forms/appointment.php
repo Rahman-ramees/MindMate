@@ -126,7 +126,7 @@ function createMailer(): PHPMailer
     // $mail->Password   = 'cpnjspxlbvsjikxq';
     // $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     // $mail->Port       = 587;
-
+$mail->setFrom(FROM_EMAIL, FROM_NAME);
     $mail->isHTML(true);
 
     $mail->SMTPDebug = 2;
