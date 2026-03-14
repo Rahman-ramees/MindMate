@@ -1,8 +1,6 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
 
-
-echo "Processing appointment form...";
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
@@ -10,13 +8,6 @@ use PHPMailer\PHPMailer\SMTP;
 header('Content-Type: application/json');
 
 try {
-
-    /*
-    |--------------------------------------------------------------------------
-    | HARD CODED TEST DATA
-    |--------------------------------------------------------------------------
-    */
-
     $name = 'ABDUL RAHMAN';
     $parentsName = 'MOHAMMED KUNHI';
     $address = 'THEKKIL FERRY, KASARAGOD';
@@ -26,12 +17,6 @@ try {
     $bloodGroup = 'O+';
     $admissionNo = 'ADM1025';
     $dob = '10-06-2012';
-
-    /*
-    |--------------------------------------------------------------------------
-    | SEND EMAIL
-    |--------------------------------------------------------------------------
-    */
 
     $mail = new PHPMailer(true);
 
@@ -44,20 +29,14 @@ try {
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
 
-    // Sender
     $mail->setFrom('no-reply@example.com', 'ID Card Generator');
-
-    // Receiver
     $mail->addAddress('rhmnramees730@gmail.com');
     $mail->addCC('rhmnramees730@gmail.com');
 
     $mail->isHTML(true);
-
     $mail->Subject = "Student Details - $name";
-
     $mail->Body = "
         <h2>Student Details</h2>
-
         <table border='1' cellpadding='6' cellspacing='0'>
             <tr><td><b>Name</b></td><td>$name</td></tr>
             <tr><td><b>Parent</b></td><td>$parentsName</td></tr>
@@ -74,11 +53,9 @@ try {
 
     echo json_encode([
         'success' => true,
-        'message' => 'Email sent successfully (no PDF).'
+        'message' => 'Email sent successfully.'
     ]);
-
 } catch (Exception $e) {
-
     http_response_code(500);
 
     echo json_encode([
