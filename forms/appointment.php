@@ -1,127 +1,88 @@
 <?php
-require_once __DIR__ . '/../PHPMailer-master/src/Exception.php';
-require_once __DIR__ . '/../PHPMailer-master/src/PHPMailer.php';
-require_once __DIR__ . '/../PHPMailer-master/src/SMTP.php';
+require __DIR__ . '/../vendor/autoload.php';
 
+
+echo "Processing appointment form...";
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
 
-// header('Content-Type: application/json');
-
-// ===============================
-// 1. Validate request
-// ===============================
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    http_response_code(405);
-    echo json_encode(['success' => false, 'error' => 'Invalid request']);
-    exit;
-}
-
-// ===============================
-// 2. Get form values safely
-// ===============================
-$clientName  = trim($_POST['name'] ?? '');
-$clientEmail = trim($_POST['email'] ?? '');
-$clientPhone = trim($_POST['phone'] ?? '');
-$date        = trim($_POST['date'] ?? '');
-$department  = trim($_POST['department'] ?? '');
-$doctor      = trim($_POST['doctor'] ?? '');
-$message     = trim($_POST['message'] ?? '');
-
-// ===============================
-// 3. Basic validation
-// ===============================
-if (
-    empty($clientName) ||
-    empty($clientEmail) ||
-    empty($clientPhone) ||
-    empty($date)
-) {
-    http_response_code(400);
-    echo json_encode(['success' => false, 'error' => 'All required fields must be filled']);
-    exit;
-}
-
-if (!filter_var($clientEmail, FILTER_VALIDATE_EMAIL)) {
-    http_response_code(400);
-    echo json_encode(['success' => false, 'error' => 'Invalid email address']);
-    exit;
-}
+header('Content-Type: application/json');
 
 try {
-    // ===============================
-    // 4. Mail configuration
-    // ===============================
-    $mail = new PHPMailer(true);
-    $mail->isSMTP();
-    $mail->Host       = 'smtp.gmail.com';
-    $mail->SMTPAuth   = true;
-    $mail->Username   = 'rhmnramees730@gmail.com';
-    $mail->Password   = 'eflfkxkpgasfgcmp'; // ⚠️ App password only
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port       = 587;
 
-    $mail->setFrom('rhmnramees730@gmail.com', 'MindMate');
+    /*
+    |--------------------------------------------------------------------------
+    | HARD CODED TEST DATA
+    |--------------------------------------------------------------------------
+    */
+
+    $name = 'ABDUL RAHMAN';
+    $parentsName = 'MOHAMMED KUNHI';
+    $address = 'THEKKIL FERRY, KASARAGOD';
+    $phone = '9876543210';
+    $standard = '7';
+    $division = 'A';
+    $bloodGroup = 'O+';
+    $admissionNo = 'ADM1025';
+    $dob = '10-06-2012';
+
+    /*
+    |--------------------------------------------------------------------------
+    | SEND EMAIL
+    |--------------------------------------------------------------------------
+    */
+
+    $mail = new PHPMailer(true);
+
+    $mail->SMTPDebug = SMTP::DEBUG_OFF;
+    $mail->isSMTP();
+    $mail->Host = 'sandbox.smtp.mailtrap.io';
+    $mail->SMTPAuth = true;
+    $mail->Username = '1a7b6577b2fd1c';
+    $mail->Password = '7f9b9f0269bd05';
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port = 587;
+
+    // Sender
+    $mail->setFrom('no-reply@example.com', 'ID Card Generator');
+
+    // Receiver
+    $mail->addAddress('rhmnramees730@gmail.com');
+    $mail->addCC('rhmnramees730@gmail.com');
+
     $mail->isHTML(true);
 
-    // ===============================
-    // 5. CLIENT EMAIL
-    // ===============================
-    $clientEmailBody = "
-        <h2>MindMate – Appointment Confirmation</h2>
-        <p>Dear <strong>{$clientName}</strong>,</p>
+    $mail->Subject = "Student Details - $name";
 
-        <p>We have received your appointment request.</p>
+    $mail->Body = "
+        <h2>Student Details</h2>
 
-        <ul>
-            <li><strong>Date & Time:</strong> {$date}</li>
-            <li><strong>Service:</strong> {$department}</li>
-            <li><strong>Specialist:</strong> {$doctor}</li>
-            <li><strong>Phone:</strong> {$clientPhone}</li>
-            <li><strong>Message:</strong> {$message}</li>
-        </ul>
-
-        <p>Our team will contact you shortly.</p>
-        <p><strong>– MindMate Team</strong></p>
+        <table border='1' cellpadding='6' cellspacing='0'>
+            <tr><td><b>Name</b></td><td>$name</td></tr>
+            <tr><td><b>Parent</b></td><td>$parentsName</td></tr>
+            <tr><td><b>Phone</b></td><td>$phone</td></tr>
+            <tr><td><b>Address</b></td><td>$address</td></tr>
+            <tr><td><b>Standard</b></td><td>$standard $division</td></tr>
+            <tr><td><b>Admission No</b></td><td>$admissionNo</td></tr>
+            <tr><td><b>Blood Group</b></td><td>$bloodGroup</td></tr>
+            <tr><td><b>DOB</b></td><td>$dob</td></tr>
+        </table>
     ";
 
-    $mail->clearAddresses();
-    $mail->addAddress($clientEmail);
-    $mail->Subject = 'Appointment Request Received – MindMate';
-    $mail->Body    = $clientEmailBody;
     $mail->send();
 
-    // ===============================
-    // 6. ADMIN EMAIL
-    // ===============================
-    $adminEmailBody = "
-        <h2>New Appointment Request</h2>
-        <p><strong>Name:</strong> {$clientName}</p>
-        <p><strong>Email:</strong> {$clientEmail}</p>
-        <p><strong>Phone:</strong> {$clientPhone}</p>
-        <p><strong>Date:</strong> {$date}</p>
-        <p><strong>Service:</strong> {$department}</p>
-        <p><strong>Specialist:</strong> {$doctor}</p>
-        <p><strong>Message:</strong> {$message}</p>
-    ";
-
-    $mail->clearAddresses();
-    $mail->addAddress('rhmnramees730@gmail.com');
-    $mail->Subject = 'New Appointment – MindMate Website';
-    $mail->Body    = $adminEmailBody;
-    $mail->send();
-
-    // ===============================
-    // 7. Success response
-    // ===============================
-    echo 'OK';
-    exit;
-
+    echo json_encode([
+        'success' => true,
+        'message' => 'Email sent successfully (no PDF).'
+    ]);
 
 } catch (Exception $e) {
+
     http_response_code(500);
+
     echo json_encode([
         'success' => false,
-        'error' => 'Mail error: ' . $e->getMessage()
+        'message' => $e->getMessage()
     ]);
 }
