@@ -128,7 +128,7 @@ function createMailer(): PHPMailer
     $mail->Host       = 'smtp.gmail.com';
     $mail->SMTPAuth   = true;
     $mail->Username   = 'mindmate.kvr@gmail.com';
-    $mail->Password   = 'cpnjspxlbvsjikxq'; // ⚠️ App password only
+    $mail->Password   = 'cpnjspxlbvsjikxq';
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port       = 587;
 
