@@ -395,70 +395,174 @@
 
 
     <!-- Appointment Section -->
-    <section id="appointment" class="appointment section">
+  <!-- Appointment Section -->
+<section id="appointment" class="appointment section">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Book an Appointment</h2>
-        <p>
-          Schedule a counseling session or laboratory service appointment at your convenience. Our team will contact you to confirm the details.
-        </p>
-      </div><!-- End Section Title -->
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Book an Appointment</h2>
+    <p>
+      Schedule your appointment with our counseling team by selecting the service and preferred counselor. Our team will contact you shortly to confirm the session details.
+    </p>
+  </div><!-- End Section Title -->
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <form action="forms/appointment.php" method="post" role="form" class="php-email-form mindmate-appointment-form">
-          <div class="row">
-            <div class="col-md-4 form-group">
-              <input style="border-radius: 10px;" type="text" name="name" class="form-control" id="name" placeholder="Full Name" required>
-            </div>
-            <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input style="border-radius: 10px;" type="email" class="form-control" name="email" id="email" placeholder="Email Address" required>
-            </div>
-            <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input style="border-radius: 10px;" type="tel" class="form-control" name="phone" id="phone" placeholder="Phone Number" required>
-            </div>
-          </div>
+    <form action="forms/appointment.php" method="post" role="form" class="php-email-form mindmate-appointment-form">
+      <div class="row gy-3">
 
-          <div class="row">
-            <div class="col-md-4 form-group mt-3">
-              <input style="border-radius: 10px;" type="datetime-local" name="date" class="form-control datepicker" id="date" required>
-            </div>
-            <div class="col-md-4 form-group mt-3">
-              <select style="border-radius: 10px;" name="department" id="department" class="form-select" required>
-                <option value="">Select Service</option>
-                <option value="Counseling">Counseling Services</option>
-                <option value="Laboratory">Laboratory Services</option>
-              </select>
-            </div>
-            <div class="col-md-4 form-group mt-3">
-              <select style="border-radius: 10px;" name="doctor" id="doctor" class="form-select" required>
-                <option value="">Select Counselor / Specialist</option>
-                <option value="Counselor 1">Counselor</option>
-                <option value="Lab Specialist">Lab Specialist</option>
-              </select>
-            </div>
-          </div>
+        <div class="col-md-4">
+          <input
+            type="text"
+            name="name"
+            class="form-control"
+            id="name"
+            placeholder="Full Name"
+            required
+            style="border-radius: 10px;"
+          >
+        </div>
 
-          <div class="form-group mt-3">
-            <textarea style="border-radius: 10px;" class="form-control" name="message" rows="5" placeholder="Additional details or concerns (optional)"></textarea>
-          </div>
+        <div class="col-md-4">
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            id="email"
+            placeholder="Email Address"
+            required
+            style="border-radius: 10px;"
+          >
+        </div>
 
-          <div class="mt-3">
-            <div class="loading">Submitting...</div>
-            <div class="error-message"></div>
-            <div class="sent-message">
-              Your appointment request has been sent successfully. Our team will get in touch with you shortly.
-            </div>
-            <div class="text-center">
-              <button type="submit">Request Appointment</button>
-            </div>
-          </div>
-        </form>
+        <div class="col-md-4">
+          <input
+            type="tel"
+            class="form-control"
+            name="phone"
+            id="phone"
+            placeholder="Phone Number"
+            required
+            style="border-radius: 10px;"
+          >
+        </div>
+
+        <div class="col-md-4">
+          <input
+            type="datetime-local"
+            name="date"
+            class="form-control"
+            id="date"
+            required
+            style="border-radius: 10px;"
+          >
+        </div>
+
+        <div class="col-md-4">
+          <select
+            name="department"
+            id="department"
+            class="form-select"
+            required
+            style="border-radius: 10px;"
+          >
+            <option value="">Select Service</option>
+            <option value="Mental Health Counseling">Mental Health Counseling</option>
+            <option value="Adolescent Counseling">Adolescent Counseling</option>
+            <option value="Premarital Counseling">Premarital Counseling</option>
+            <option value="Family Counseling">Family Counseling</option>
+            <option value="Career Counseling">Career Counseling</option>
+            <option value="Substance Abuse Counseling">Substance Abuse Counseling</option>
+            <option value="Geriatric Counseling">Geriatric (Old Age) Counseling</option>
+            <option value="Behavioral Counseling">Behavioral Counseling</option>
+            <option value="Stress Management">Stress Management</option>
+            <option value="Anxiety Management">Anxiety Management</option>
+            <option value="Supportive Psycho Therapy">Supportive Psycho Therapy</option>
+            <option value="ADHD Management">ADHD Management</option>
+            <option value="NLP Based Healing and Ventilation">NLP Based Healing and Ventilation</option>
+            <option value="Life Skills Education">Life Skills Education</option>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <select
+            name="doctor"
+            id="doctor"
+            class="form-select"
+            required
+            style="border-radius: 10px;"
+          >
+            <option value="">Select Counselor</option>
+            <option value="Bushra TP - Director of Mind Mate / Senior Counselor">
+              Bushra TP - Director of Mind Mate / Senior Counselor
+            </option>
+            <option value="Neema P - Applied Psychologist / Medical & Psychiatric Social Worker">
+              Neema P - Applied Psychologist / Medical & Psychiatric Social Worker
+            </option>
+            <option value="Jilu Asna - Consultant Psychologist">
+              Jilu Asna - Consultant Psychologist
+            </option>
+            <option value="Sunitha Nair - Counsellor and Behavioural Psychology Professional">
+              Sunitha Nair - Counsellor and Behavioural Psychology Professional
+            </option>
+            <option value="Fasila - Clinical Psychologist">
+              Fasila - Clinical Psychologist
+            </option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <select
+            class="form-select"
+            name="preferred_mode"
+            id="preferred_mode"
+            style="border-radius: 10px; min-height: 52px;"
+            required
+          >
+            <option value="">Preferred Mode</option>
+            <option value="Online">Online</option>
+            <option value="Offline">Offline</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <input
+            type="text"
+            class="form-control"
+            name="subject"
+            id="subject"
+            placeholder="Reason for Appointment"
+            style="border-radius: 10px;"
+          >
+        </div>
+
+        <div class="col-12">
+          <textarea
+            class="form-control"
+            name="message"
+            rows="5"
+            placeholder="Additional details, concerns, or preferred time slot"
+            style="border-radius: 10px;"
+          ></textarea>
+        </div>
 
       </div>
 
-    </section><!-- /Appointment Section -->
+      <div class="mt-4">
+        <div class="loading">Submitting...</div>
+        <div class="error-message"></div>
+        <div class="sent-message">
+          Your appointment request has been sent successfully. Our team will contact you shortly to confirm the details.
+        </div>
+        <div class="text-center">
+          <button type="submit">Request Appointment</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+
+</section><!-- /Appointment Section -->
 
 
  <!-- Departments Section -->
@@ -1606,6 +1710,37 @@
   font-weight: 600;
 }
 
+.mindmate-appointment-form .form-control,
+.mindmate-appointment-form .form-select {
+  min-height: 52px;
+  border: 1px solid #d9d9d9;
+  box-shadow: none;
+  padding: 10px 14px;
+}
+
+.mindmate-appointment-form textarea.form-control {
+  min-height: 140px;
+}
+
+.mindmate-appointment-form .form-control:focus,
+.mindmate-appointment-form .form-select:focus {
+  border-color: #5f6fff;
+  box-shadow: 0 0 0 0.15rem rgba(95, 111, 255, 0.15);
+}
+
+.mindmate-appointment-form button[type="submit"] {
+  background: #5f6fff;
+  border: none;
+  padding: 12px 32px;
+  color: #fff;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.mindmate-appointment-form button[type="submit"]:hover {
+  background: #4c5ae0;
+}
 </style>
 
 </html>

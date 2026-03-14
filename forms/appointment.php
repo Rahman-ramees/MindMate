@@ -6,8 +6,6 @@ require_once __DIR__ . '/../PHPMailer-master/src/SMTP.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// header('Content-Type: application/json');
-
 // ===============================
 // 1. Validate request
 // ===============================
@@ -20,13 +18,15 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 // ===============================
 // 2. Get form values safely
 // ===============================
-$clientName  = trim($_POST['name'] ?? '');
-$clientEmail = trim($_POST['email'] ?? '');
-$clientPhone = trim($_POST['phone'] ?? '');
-$date        = trim($_POST['date'] ?? '');
-$department  = trim($_POST['department'] ?? '');
-$doctor      = trim($_POST['doctor'] ?? '');
-$message     = trim($_POST['message'] ?? '');
+$clientName    = trim($_POST['name'] ?? '');
+$clientEmail   = trim($_POST['email'] ?? '');
+$clientPhone   = trim($_POST['phone'] ?? '');
+$date          = trim($_POST['date'] ?? '');
+$department    = trim($_POST['department'] ?? '');
+$doctor        = trim($_POST['doctor'] ?? '');
+$preferredMode = trim($_POST['preferred_mode'] ?? '');
+$subject       = trim($_POST['subject'] ?? '');
+$message       = trim($_POST['message'] ?? '');
 
 // ===============================
 // 3. Basic validation
@@ -35,16 +35,24 @@ if (
     empty($clientName) ||
     empty($clientEmail) ||
     empty($clientPhone) ||
-    empty($date)
+    empty($date) ||
+    empty($department) ||
+    empty($doctor)
 ) {
     http_response_code(400);
-    echo json_encode(['success' => false, 'error' => 'All required fields must be filled']);
+    echo json_encode([
+        'success' => false,
+        'error' => 'All required fields must be filled'
+    ]);
     exit;
 }
 
 if (!filter_var($clientEmail, FILTER_VALIDATE_EMAIL)) {
     http_response_code(400);
-    echo json_encode(['success' => false, 'error' => 'Invalid email address']);
+    echo json_encode([
+        'success' => false,
+        'error' => 'Invalid email address'
+    ]);
     exit;
 }
 
@@ -64,24 +72,41 @@ try {
     $mail->setFrom('rhmnramees730@gmail.com', 'MindMate');
     $mail->isHTML(true);
 
+    // Optional display values
+    $preferredModeText = !empty($preferredMode) ? $preferredMode : 'Not specified';
+    $subjectText       = !empty($subject) ? $subject : 'Not specified';
+    $messageText       = !empty($message) ? nl2br(htmlspecialchars($message)) : 'No additional message';
+
+    // Escape output for email safety
+    $safeClientName    = htmlspecialchars($clientName);
+    $safeClientEmail   = htmlspecialchars($clientEmail);
+    $safeClientPhone   = htmlspecialchars($clientPhone);
+    $safeDate          = htmlspecialchars($date);
+    $safeDepartment    = htmlspecialchars($department);
+    $safeDoctor        = htmlspecialchars($doctor);
+    $safePreferredMode = htmlspecialchars($preferredModeText);
+    $safeSubject       = htmlspecialchars($subjectText);
+
     // ===============================
     // 5. CLIENT EMAIL
     // ===============================
     $clientEmailBody = "
         <h2>MindMate – Appointment Confirmation</h2>
-        <p>Dear <strong>{$clientName}</strong>,</p>
+        <p>Dear <strong>{$safeClientName}</strong>,</p>
 
-        <p>We have received your appointment request.</p>
+        <p>We have received your appointment request successfully.</p>
 
         <ul>
-            <li><strong>Date & Time:</strong> {$date}</li>
-            <li><strong>Service:</strong> {$department}</li>
-            <li><strong>Specialist:</strong> {$doctor}</li>
-            <li><strong>Phone:</strong> {$clientPhone}</li>
-            <li><strong>Message:</strong> {$message}</li>
+            <li><strong>Date & Time:</strong> {$safeDate}</li>
+            <li><strong>Service:</strong> {$safeDepartment}</li>
+            <li><strong>Counselor:</strong> {$safeDoctor}</li>
+            <li><strong>Preferred Mode:</strong> {$safePreferredMode}</li>
+            <li><strong>Reason for Appointment:</strong> {$safeSubject}</li>
+            <li><strong>Phone:</strong> {$safeClientPhone}</li>
+            <li><strong>Additional Details:</strong> {$messageText}</li>
         </ul>
 
-        <p>Our team will contact you shortly.</p>
+        <p>Our team will contact you shortly to confirm the details.</p>
         <p><strong>– MindMate Team</strong></p>
     ";
 
@@ -96,13 +121,15 @@ try {
     // ===============================
     $adminEmailBody = "
         <h2>New Appointment Request</h2>
-        <p><strong>Name:</strong> {$clientName}</p>
-        <p><strong>Email:</strong> {$clientEmail}</p>
-        <p><strong>Phone:</strong> {$clientPhone}</p>
-        <p><strong>Date:</strong> {$date}</p>
-        <p><strong>Service:</strong> {$department}</p>
-        <p><strong>Specialist:</strong> {$doctor}</p>
-        <p><strong>Message:</strong> {$message}</p>
+        <p><strong>Name:</strong> {$safeClientName}</p>
+        <p><strong>Email:</strong> {$safeClientEmail}</p>
+        <p><strong>Phone:</strong> {$safeClientPhone}</p>
+        <p><strong>Date & Time:</strong> {$safeDate}</p>
+        <p><strong>Service:</strong> {$safeDepartment}</p>
+        <p><strong>Counselor:</strong> {$safeDoctor}</p>
+        <p><strong>Preferred Mode:</strong> {$safePreferredMode}</p>
+        <p><strong>Reason for Appointment:</strong> {$safeSubject}</p>
+        <p><strong>Additional Details:</strong><br>{$messageText}</p>
     ";
 
     $mail->clearAddresses();
@@ -117,7 +144,6 @@ try {
     echo 'OK';
     exit;
 
-
 } catch (Exception $e) {
     http_response_code(500);
     echo json_encode([
@@ -125,3 +151,4 @@ try {
         'error' => 'Mail error: ' . $e->getMessage()
     ]);
 }
+?>
