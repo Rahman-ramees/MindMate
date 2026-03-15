@@ -32,7 +32,7 @@ try {
     $payload = [
         'sender' => [
             'name' => 'Team Mind Mate',
-            'email' => 'mindmate.kvr@gmail.com'
+            'email' => 'mindmateweb@gmail.com'
         ],
         'to' => [
             ['email' => $data['clientEmail']]
