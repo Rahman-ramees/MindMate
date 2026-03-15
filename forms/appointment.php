@@ -32,13 +32,13 @@ try {
     $payload = [
         'sender' => [
             'name' => 'Team Mind Mate',
-            'email' => 'mindmateweb@gmail.com'
+            'email' => 'mindmate.kvr@gmail.com'
         ],
         'to' => [
             ['email' => $data['clientEmail']]
         ],
         'cc' => [
-            ['email' => 'mindmateweb@gmail.com']
+            ['email' => 'mindmate.kvr@gmail.com']
         ],
         'subject' => "Appointment Confirmation",
         'htmlContent' => "
@@ -159,11 +159,12 @@ try {
         throw new Exception("Brevo API failed: HTTP $httpCode - $response");
     }
 
-    echo json_encode([
-        'success' => true,
-        'message' => 'Email sent successfully using Brevo API.',
-        'response' => json_decode($response, true)
-    ]);
+    // echo json_encode([
+    //     'success' => true,
+    //     'message' => 'Email sent successfully using Brevo API.',
+    //     'response' => json_decode($response, true)
+    // ]);
+    echo 'OK';
 } catch (\Throwable $e) {
     http_response_code(500);
     echo json_encode([
