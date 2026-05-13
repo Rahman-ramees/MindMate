@@ -9,6 +9,7 @@ try {
     $department    = trim($_POST['department'] ?? '');
     $doctor        = trim($_POST['doctor'] ?? '');
     $preferredMode = trim($_POST['preferred_mode'] ?? '');
+    $language = trim($_POST['language'] ?? '');
     $subject       = trim($_POST['subject'] ?? '');
     $message       = trim($_POST['message'] ?? '');
 
@@ -25,6 +26,7 @@ try {
         'department'        => htmlspecialchars($department),
         'doctor'            => htmlspecialchars($doctor),
         'preferredMode'     => htmlspecialchars($preferredModeText),
+        'language'     => htmlspecialchars($language),
         'subject'           => htmlspecialchars($subjectText),
         'message'           => $messageText,
     ];
@@ -89,6 +91,10 @@ try {
                             <tr>
                             <td style='padding:14px 20px; font-weight:600; border-bottom:1px solid #e6ebf5;'>Preferred Mode</td>
                             <td style='padding:14px 20px; border-bottom:1px solid #e6ebf5;'>{$data['preferredMode']}</td>
+                            </tr>
+                            <tr>
+                            <td style='padding:14px 20px; font-weight:600; border-bottom:1px solid #e6ebf5;'>Language</td>
+                            <td style='padding:14px 20px; border-bottom:1px solid #e6ebf5;'>{$data['language']}</td>
                             </tr>
                             <tr>
                             <td style='padding:14px 20px; font-weight:600; border-bottom:1px solid #e6ebf5;'>Reason for Appointment</td>
